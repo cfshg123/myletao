@@ -17,7 +17,7 @@ a:active {
 }
 
 
-
+// 左边
 .lt_aside {
   width: 180px;
   height: 100%;
@@ -75,7 +75,10 @@ a:active {
   }
 }
 
+// 右边
 .lt_right {
+
+  // 右上
   .lt_top {
     height: 50px;
     width: 100%;
@@ -95,5 +98,28 @@ a:active {
     }
   }
 
-  
-}
+  // 右主体
+  .lt_main {
+    width:100%;
+    height: 100%;
+    // background-color: pink;
+    padding-left: 180px;
+    padding-top: 50px;
+    
+    // 右 路径导航
+    .breadcrumb {
+      margin-top: 20px;
+
+      li {
+        &:first-child a {
+          color: #337ab7;
+
+        &:hover {
+           
+            color: #777 !important;
+          }
+        }
+       }
+      }
+    }
+  }
