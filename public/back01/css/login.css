@@ -1,0 +1,8 @@
+html,body {
+  background-color: #222d32;
+  padding-top: 80px;
+}
+.panel-heading h3 {
+  height: 40px;
+  line-height: 40px;
+}
