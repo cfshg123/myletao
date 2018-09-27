@@ -70,6 +70,9 @@ a:active {
 .lt_aside.now {
   left: -180px;
 }
+.lt_right .main_nav {
+  padding: 0 10px;
+}
 .lt_right .lt_top {
   height: 50px;
   width: 100%;

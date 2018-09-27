@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.min.css">
   <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
+  
   <!-- <link rel="stylesheet" href="./lib/echarts/"> -->
   <!-- <link rel="stylesheet" href="./css/login.css"> -->
   <link rel="stylesheet" href="./css/lt.css">
@@ -31,14 +32,14 @@
     <div class="aside_nav">
       <ul>
         <li>
-          <a href="#" class="current">
+          <a href="user.html" class="current">
             <i class="glyphicon glyphicon-user"></i>
             <span>用户管理</span>
           </a>
         </li>
 
         <li>
-          <a href="#" class="nav_classify">
+          <a href="javascript:;" class="nav_classify">
             <i class="glyphicon glyphicon-list"></i>
             <span>分类管理</span>
           </a>
@@ -49,7 +50,7 @@
         </li>
 
         <li>
-          <a href="#">
+          <a href="products.html">
             <i class="glyphicon glyphicon-tags"></i>
             <span>商品管理</span>
           </a>
@@ -80,13 +81,38 @@
         </ol>
       </div>
 
-      <div id="main" style="width: 48%;height:400px;" class="pull-left"></div>
-      <div id="pie" style="width: 48%;height:400px;" class="pull-right"></div>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>序号</th>
+            <th>用户名</th>
+            <th>手机号</th>
+            <th>状态</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- <tr>
+            <td>1</td>
+            <td>itcast</td>
+            <td>15102324243</td>
+            <td>正常</td>
+            <td>
+              <input type="button" value="禁用" class="btn btn-danger">
+            </td>
+          </tr> -->
+        </tbody>
+      </table>
+
     </div>
 
   </div>
 
-
+  <div class="pagintor pull-right">
+          <ul id="pagintor">
+            
+          </ul>
+  </div>
 
   <!-- 模态框 -->
   <!-- Modal -->
@@ -110,14 +136,35 @@
     </div>
   </div>
 
+  <!-- 准备一个模板 -->
+  <script type="text/template" id="tmp">
+  
+    {{ each rows v i }}
+
+      <tr>
+          <td>{{ i + 1 }}</td>
+          <td>{{ v.username }}</td>
+          <td>{{ v.mobile }}</td>
+          <td>{{ v.isDelete == 1 ? "已正常":"已禁用" }}</td>
+          <td>
+            <input type="button" value="禁用" class="btn btn-danger">
+          </td>
+        </tr>
+
+      {{ /each }}
+
+  </script>
+
 </body>
 <script src="./lib/jquery/jquery.js"></script>
 <script src="./lib/bootstrap/js/bootstrap.js"></script>
 <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
 <script src="./lib/nprogress/nprogress.js"></script>
 <script src="./lib/echarts/echarts.min.js"></script>
-<!-- <script src="./js/login.js"></script> -->
+<script src="./lib/artTemplate/template-web.js"></script>
+<script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
 <script src="./js/common.js"></script>
 <script src="./js/checklogin.js"></script>
-<script src="./js/index.js"></script>
+<script src="./js/user.js"></script>
+
 </html>
