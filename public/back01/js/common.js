@@ -40,7 +40,7 @@ $(".lt_top .pull-right").click(function(){
 
 // 点击确定 退出(此时并没有真正销毁后台，因为登录页不需要 所以单独开一个js---)
 // 即需要在另外的地方写==========拦截功能==============
-$(".modal-footer .btn-primary").click(function(){
+$("#myModal .btn-primary").click(function(){
 
   $.ajax({
 

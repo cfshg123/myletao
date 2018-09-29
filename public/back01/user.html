@@ -77,11 +77,11 @@
       <div class="main_nav">
         <ol class="breadcrumb">
           <li><a href="index.html">管理系统</a></li>
-          <li class="active">首页</li>
+          <li class="active">用户管理</li>
         </ol>
       </div>
 
-      <table class="table table-bordered">
+      <table class="table table-bordered table-hover">
         <thead>
           <tr>
             <th>序号</th>
@@ -116,7 +116,32 @@
 
   <!-- 模态框 -->
   <!-- Modal -->
+
+
+  <!-- 点击启用禁用的模态框 -->
   
+  <div class="modal fade" id="userModal" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"></button>
+          <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
+        </div>
+        <div class="modal-body">
+          <i class="glyphicon glyphicon-info-sign"></i>
+          <span> 您确定要执行此操作吗？</span>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-primary sure">确定</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- 退出的模态框 -->
 <div class="modal fade" id="myModal" tabindex="-1">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
@@ -142,18 +167,26 @@
     {{ each rows v i }}
 
       <tr>
-          <td>{{ i + 1 }}</td>
+          <td>{{ (i + 1) + (page - 1)*size }}</td>
           <td>{{ v.username }}</td>
           <td>{{ v.mobile }}</td>
-          <td>{{ v.isDelete == 1 ? "已正常":"已禁用" }}</td>
-          <td>
+          <td>{{ v.isDelete === 1 ? "已正常":"已禁用" }}</td>
+          <td data-id="{{ v.id }}">
+            {{ if v.isDelete === 1 }}
             <input type="button" value="禁用" class="btn btn-danger">
+            {{ /if }}
+
+            {{ if v.isDelete === 0 }}
+            <input type="button" value="启用" class="btn btn-success">
+            {{ /if }}
           </td>
         </tr>
 
       {{ /each }}
 
   </script>
+
+
 
 </body>
 <script src="./lib/jquery/jquery.js"></script>
